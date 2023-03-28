@@ -30,6 +30,7 @@ lb=-10*ones(1, nvars);
 ub = -lb;
 options = optimoptions('particleswarm', 'PlotFcn', @pswplotbestf);
 [x, fval] = particleswarm(fun, nvars, lb, ub, options)
+figure(1)
 
 figure(1)
 zl = zlim
