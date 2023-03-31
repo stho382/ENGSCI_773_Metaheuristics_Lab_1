@@ -1,6 +1,6 @@
 clf
 clear all
-addpath('C:\Program Files\MATLAB\R2022b\examples\globaloptim\main')
+addpath('C:\Program Files\MATLAB\R2021b\examples\globaloptim\main')
 
 figure(1)
 ndim = 2;
@@ -34,6 +34,11 @@ ylabel('y')
 zlabel('z')
 
 % Use a GA with integer values for x(1) here
+rng(233904926);
+options = optimoptions('ga', 'PlotFcn', {@gaplotbestf, @gaplotscorediversity}, MutationFcn='mutationadaptfeasible');
+fun = @griewank;
+IntCon = 1
+x = ga(fun, 2, [], [], [], [], [], [], [], IntCon, options)
 
 figure(1)
 zl = zlim
